@@ -1,0 +1,8 @@
+[core]
+    autocrlf = input
+    safecrlf = true
+[init]
+    defaultBranch = main
+[user]
+    name = Vladimir Bezhenar
+    email = me@vbezhenar.com
