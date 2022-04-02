@@ -28,9 +28,22 @@ path+=$GOPATH/bin
 # aliases and simple functions
 alias ls="ls -G"
 alias ll="ls -hl"
-mkcd() {
-	mkdir -p "$1" && cd "$1"
+function mkcd() {
+    mkdir -p "$1" && cd "$1"
 }
-mkcdtmp() {
-	mkcd ~/tmp/$(date "+%y%m%d")
+function mkcdtmp() {
+    mkcd ~/tmp/$(date "+%y%m%d")
+}
+
+function pwgen() {
+    local len="${1:-1}"
+    for ((i = 0; i < 10;)) {
+        head --bytes="$((len * 6))" /dev/urandom | base64 | tr "/+" "_-" | grep "[a-z]" | grep "[A-Z]" | grep "[0-9]" | grep "[_-]" && ((i++))
+    }
+}
+
+function pwgena() {
+    local len="${1:-2}"
+    for ((i = 0; i < 10; i++))
+        head --bytes="$((len * 6))" /dev/urandom | base64 | tr -d "=/+0-9" | tr "A-Z" "a-z" | tr -d "ilo"
 }
