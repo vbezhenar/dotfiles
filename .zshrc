@@ -24,6 +24,7 @@ compinit
 path+=~/apps/apache-maven-3/bin
 export GOPATH=~/.go
 path+=$GOPATH/bin
+path+=~/.cargo/bin
 
 # aliases and simple functions
 alias ls="ls -G"
