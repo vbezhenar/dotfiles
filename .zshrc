@@ -35,6 +35,8 @@ function mkcd() {
 function mkcdtmp() {
     mkcd ~/tmp/$(date "+%y%m%d")
 }
+alias cp="cp -i -c"
+alias mv="mv -i"
 
 function pwgen() {
     local len="${1:-1}"
@@ -47,4 +49,13 @@ function pwgena() {
     local len="${1:-2}"
     for ((i = 0; i < 10; i++))
         head --bytes="$((len * 6))" /dev/urandom | base64 | tr -d "=/+0-9" | tr "A-Z" "a-z" | tr -d "ilo"
+}
+
+function setjavahome() {
+    local jh=~/"apps/jdks/jdk-$1"
+    if [ ! -e "$jh" ]
+    then
+        print >&2 "$jh does not exist"
+    fi
+    export JAVA_HOME="$jh"
 }
