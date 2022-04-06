@@ -17,6 +17,7 @@ setopt extended_glob
 setopt multios
 
 # completion
+fpath+=~/.zshfunctions
 autoload -U compinit
 compinit
 
