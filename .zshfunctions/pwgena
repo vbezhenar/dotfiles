@@ -1,0 +1,5 @@
+pwgena() {
+    local len="${1:-2}"
+    for ((i = 0; i < 10; i++))
+        head --bytes="$((len * 6))" /dev/urandom | base64 | tr -d "=/+0-9" | tr "A-Z" "a-z" | tr -d "ilo"
+}

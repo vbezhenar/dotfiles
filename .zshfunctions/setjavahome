@@ -1,0 +1,8 @@
+setjavahome() {
+    local jh=~/"apps/jdks/jdk-$1"
+    if [ ! -e "$jh" ]
+    then
+        print >&2 "$jh does not exist"
+    fi
+    export JAVA_HOME="$jh"
+}
