@@ -17,7 +17,7 @@ setopt extended_glob
 setopt multios
 
 # completion
-fpath+=~/.zshfunctions
+fpath+=(/opt/local/share/zsh/site-functions ~/.zshfunctions)
 autoload -U compinit
 compinit
 
