@@ -1,5 +1,5 @@
 setjavahome() {
-    local jh=~/"apps/jdks/jdk-$1"
+    local jh="/opt/liberica/jdk-$1"
     if [ ! -e "$jh" ]
     then
         print >&2 "$jh does not exist"
