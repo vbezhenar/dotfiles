@@ -29,7 +29,7 @@ path+=~/.cargo/bin
 
 # aliases and simple functions
 alias ls="ls -G"
-alias ll="ls -hl"
+alias ll="ls -Ahl"
 autoload mkcd
 autoload mkcdtmp
 alias cp="cp -i -c"
