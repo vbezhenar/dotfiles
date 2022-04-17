@@ -22,7 +22,7 @@ autoload -U compinit
 compinit
 
 # path
-path+=~/apps/apache-maven-3/bin
+path+=/opt/apache-maven-3/bin
 export GOPATH=~/.go
 path+=$GOPATH/bin
 path+=~/.cargo/bin
