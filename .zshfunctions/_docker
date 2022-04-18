@@ -1,5 +1,5 @@
 #compdef docker dockerd
-#
+# https://raw.githubusercontent.com/docker/cli/v20.10.14/contrib/completion/zsh/_docker
 # zsh completion for docker (http://docker.com)
 #
 # version:  0.3.0
