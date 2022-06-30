@@ -6,6 +6,7 @@ setopt hist_no_store
 setopt hist_no_functions
 setopt hist_reduce_blanks
 setopt inc_append_history
+setopt transient_rprompt
 
 # prompt
 PS1="%# "
@@ -20,16 +21,14 @@ setopt multios
 fpath+=(/opt/local/share/zsh/site-functions ~/.zshfunctions)
 autoload -U compinit
 compinit
-
 # path
-path+=/opt/bin
 export GOPATH=~/.go
-path+=$GOPATH/bin
-path+=~/.cargo/bin
+path=(~/opt/bin /opt/bin $GOPATH/bin ~/.cargo/bin $path)
 
 # aliases and simple functions
 alias ls="ls -G"
 alias ll="ls -Ahl"
+autoload ij
 autoload mkcd
 autoload mkcdtmp
 alias cp="cp -i -c"
