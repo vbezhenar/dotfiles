@@ -1,6 +1,0 @@
-pwgen() {
-    local len="${1:-1}"
-    for ((i = 0; i < 10;)) {
-        head --bytes="$((len * 6))" /dev/urandom | base64 | tr "/+" "_-" | grep "[a-z]" | grep "[A-Z]" | grep "[0-9]" | grep "[_-]" && ((i++))
-    }
-}

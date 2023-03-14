@@ -1,3 +1,0 @@
-ij() {
-    open -na "IntelliJ IDEA" --args "$@"
-}
