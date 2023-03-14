@@ -1,8 +1,14 @@
 [core]
-    autocrlf = input
-    safecrlf = true
+  autocrlf = input
+  safecrlf = true
 [init]
-    defaultBranch = main
+  defaultBranch = main
+[merge]
+  ff = only
+[pull]
+  ff = only
+[push]
+  autoSetupRemote = true
 [user]
-    name = Vladimir Bezhenar
-    email = me@vbezhenar.com
+  name = Vladimir Bezhenar
+  email = me@vbezhenar.com
