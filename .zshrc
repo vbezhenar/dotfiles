@@ -18,6 +18,7 @@ RPS1="%40<...<%~"
 setopt auto_cd
 setopt extended_glob
 setopt multios
+export LANG=en_GB.UTF-8
 
 # completion
 fpath+=(/opt/local/share/zsh/site-functions ~/.zshfunctions)
@@ -30,14 +31,10 @@ path=($path /opt/local/bin /opt/local/sbin)
 # aliases and simple functions
 alias ls="ls -G"
 alias ll="ls -Ahl"
-autoload ij
 autoload mkcd
 autoload mkcdtmp
 alias cp="cp -i"
 alias mv="mv -i"
-autoload pwgen
-autoload pwgena
-autoload setjavahome
 
 compile1() {
   if [[ ! "$1" -nt "$1.zwc" ]]
@@ -55,8 +52,8 @@ compile2() {
     zcompile "$f"
   fi
 }
+
 compile1 ~/.zshrc
-#compile2 ~/.zshfunctions/_kubectl /opt/local/bin/kubectl completion zsh
 compile1 ~/.zshfunctions/mkcd
 compile1 ~/.zshfunctions/mkcdtmp
 
