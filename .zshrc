@@ -22,11 +22,11 @@ export LANG=en_GB.UTF-8
 
 # completion
 fpath+=(/opt/local/share/zsh/site-functions ~/.zshfunctions)
-autoload -U compinit
+autoload compinit
 compinit
 
 # path
-path=($path /opt/local/bin /opt/local/sbin)
+path=(/opt/bin $path /opt/local/bin /opt/local/sbin)
 
 # aliases and simple functions
 alias ls="ls -G"
@@ -56,5 +56,6 @@ compile2() {
 compile1 ~/.zshrc
 compile1 ~/.zshfunctions/mkcd
 compile1 ~/.zshfunctions/mkcdtmp
+compile2 ~/.zshfunctions/_kubectl /opt/local/bin/kubectl completion zsh
 
 unset compile1 compile2
