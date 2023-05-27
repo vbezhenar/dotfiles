@@ -36,26 +36,20 @@ autoload mkcdtmp
 alias cp="cp -i"
 alias mv="mv -i"
 
-compile1() {
-  if [[ ! "$1" -nt "$1.zwc" ]]
-  then
-    zcompile "$1"
-  fi
+# completions
+# _docker: https://raw.githubusercontent.com/docker/cli/v20.10.25/contrib/completion/zsh/_docker
+autoload _docker
+compdef _docker docker
+# _kubectl: kubectl completion zsh
+
+compile() {
+  [[ ! "${1}" -nt "${1}.zwc" ]] && zcompile "${1}"
 }
 
-compile2() {
-  if [[ ! "$1" -nt "$2" ]]
-  then
-    local f="$1"
-    shift
-    "$@" > "$f"
-    zcompile "$f"
-  fi
-}
+compile ~/.zshrc
+compile ~/.zshfunctions/_docker
+compile ~/.zshfunctions/_kubectl
+compile ~/.zshfunctions/mkcd
+compile ~/.zshfunctions/mkcdtmp
 
-compile1 ~/.zshrc
-compile1 ~/.zshfunctions/mkcd
-compile1 ~/.zshfunctions/mkcdtmp
-compile2 ~/.zshfunctions/_kubectl /opt/local/bin/kubectl completion zsh
-
-unset compile1 compile2
+unset compile
