@@ -19,6 +19,7 @@ setopt auto_cd
 setopt extended_glob
 setopt multios
 export LANG=en_GB.UTF-8
+export BUILDKIT_PROGRESS=plain
 
 # completion
 fpath+=(/opt/local/share/zsh/site-functions ~/.zshfunctions)
@@ -31,10 +32,12 @@ path=(/opt/bin $path /opt/local/bin /opt/local/sbin)
 # aliases and simple functions
 alias ls="ls -G"
 alias ll="ls -Ahl"
+autoload k-set-ns
 autoload mkcd
 autoload mkcdtmp
 alias cp="cp -i"
 alias mv="mv -i"
+alias k=kubectl
 
 # completions
 # _docker: https://raw.githubusercontent.com/docker/cli/v20.10.25/contrib/completion/zsh/_docker
@@ -49,6 +52,7 @@ compile() {
 compile ~/.zshrc
 compile ~/.zshfunctions/_docker
 compile ~/.zshfunctions/_kubectl
+compile ~/.zshfunctions/k-set-ns
 compile ~/.zshfunctions/mkcd
 compile ~/.zshfunctions/mkcdtmp
 

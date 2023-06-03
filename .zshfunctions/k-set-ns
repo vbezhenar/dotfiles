@@ -1,0 +1,18 @@
+k-set-ns() {
+  local ns="$1"
+  if [ -z "$ns" ] && [ -e './kustomization.yaml' ]
+  then
+    ns="$(yq '.namespace' './kustomization.yaml')"
+  fi
+  if [ -z "$ns" ]
+  then
+    ns="$(basename "$PWD")"
+  fi
+  if [ -n "$ns" ]
+  then
+    echo "namespace=$ns"
+    kubectl config set-context --current --namespace="${ns}"
+  else
+    echo >&2 'Usage: k-set-ns [namespace]'
+  fi
+}
