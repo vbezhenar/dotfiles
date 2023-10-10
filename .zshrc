@@ -22,7 +22,7 @@ export LANG=en_GB.UTF-8
 export BUILDKIT_PROGRESS=plain
 
 # completion
-fpath+=(/opt/local/share/zsh/site-functions ~/.zshfunctions)
+fpath+=(/opt/homebrew/share/zsh/site-functions ~/.zshfunctions)
 autoload compinit
 compinit
 
@@ -43,22 +43,3 @@ autoload mkcdtmp
 alias cp="cp -i"
 alias mv="mv -i"
 alias k=kubectl
-
-# completions
-# _docker: https://raw.githubusercontent.com/docker/cli/v20.10.25/contrib/completion/zsh/_docker
-autoload _docker
-compdef _docker docker
-# _kubectl: kubectl completion zsh
-
-compile() {
-  [[ ! "${1}" -nt "${1}.zwc" ]] && zcompile "${1}"
-}
-
-compile ~/.zshrc
-compile ~/.zshfunctions/_docker
-compile ~/.zshfunctions/_kubectl
-compile ~/.zshfunctions/k-set-ns
-compile ~/.zshfunctions/mkcd
-compile ~/.zshfunctions/mkcdtmp
-
-unset compile
