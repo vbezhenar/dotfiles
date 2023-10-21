@@ -14,6 +14,10 @@ setopt transient_rprompt
 PS1="%(?..%F{red}%?%f )%# "
 RPS1="%40<...<%~"
 
+# paths
+path=(/opt/bin $path)
+export JAVA_HOME=/opt/jdk-21+35/Contents/Home
+
 # misc
 setopt auto_cd
 setopt extended_glob
@@ -32,6 +36,7 @@ alias ll="ls -Ahl"
 autoload k-set-ns
 autoload mkcd
 autoload mkcdtmp
+autoload set-java-home
 alias cp="cp -i"
 alias mv="mv -i"
 alias k=kubectl
