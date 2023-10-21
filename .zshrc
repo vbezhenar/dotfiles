@@ -22,17 +22,9 @@ export LANG=en_GB.UTF-8
 export BUILDKIT_PROGRESS=plain
 
 # completion
-fpath+=(/opt/homebrew/share/zsh/site-functions ~/.zshfunctions)
+fpath+=(~/.zshfunctions)
 autoload compinit
 compinit
-
-# homebrew
-export HOMEBREW_PREFIX="/opt/homebrew";
-export HOMEBREW_CELLAR="/opt/homebrew/Cellar";
-export HOMEBREW_REPOSITORY="/opt/homebrew";
-export PATH="/opt/homebrew/bin:/opt/homebrew/sbin${PATH+:$PATH}";
-export MANPATH="/opt/homebrew/share/man${MANPATH+:$MANPATH}:";
-export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}";
 
 # aliases and simple functions
 alias ls="ls -G"
