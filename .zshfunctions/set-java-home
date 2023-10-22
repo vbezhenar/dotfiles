@@ -2,19 +2,19 @@ set-java-home() {
   local p
   case "$1" in
     '')
-      p='/opt/jdk-21+35/Contents/Home'
+      p='/opt/java/jdk-21'
       ;;
     '8')
-      p='/opt/zulu8.72.0.17-ca-fx-jdk8.0.382-macosx_aarch64'
+      p='/opt/java/jdk-8'
       ;;
     '11')
-      p='/opt/jdk-11.0.20.1+1/Contents/Home'
+      p='/opt/java/jdk-11'
       ;;
     '17')
-      p='/opt/jdk-17.0.9+9/Contents/Home'
+      p='/opt/java/jdk-17'
       ;;
     '21')
-      p='/opt/jdk-21+35/Contents/Home'
+      p='/opt/java/jdk-21'
       ;;
     *)
       echo >&2 'Usage: set-java-home [8|11|17|21]'

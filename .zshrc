@@ -16,7 +16,7 @@ RPS1="%40<...<%~"
 
 # paths
 path=(/opt/bin $path)
-export JAVA_HOME=/opt/jdk-21+35/Contents/Home
+export JAVA_HOME=/opt/java/jdk-21
 
 # misc
 setopt auto_cd
