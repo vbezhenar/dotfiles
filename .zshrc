@@ -15,7 +15,7 @@ PS1="%(?..%F{red}%?%f )%# "
 RPS1="%40<...<%~"
 
 # paths
-path=(/opt/bin $path)
+path=($path /opt/bin /opt/arm-gnu-toolchain-12.3.rel1-darwin-arm64-arm-none-eabi/bin)
 export JAVA_HOME=/opt/java/jdk-21
 
 # misc
