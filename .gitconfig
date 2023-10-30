@@ -1,5 +1,6 @@
 [core]
   autocrlf = input
+  pager = less --mouse
   safecrlf = true
 [init]
   defaultBranch = main
