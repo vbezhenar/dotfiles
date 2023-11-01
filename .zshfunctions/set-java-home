@@ -1,25 +1,8 @@
 set-java-home() {
-  local p
-  case "$1" in
-    '')
-      p='/opt/java/jdk-21'
-      ;;
-    '8')
-      p='/opt/java/jdk-8'
-      ;;
-    '11')
-      p='/opt/java/jdk-11'
-      ;;
-    '17')
-      p='/opt/java/jdk-17'
-      ;;
-    '21')
-      p='/opt/java/jdk-21'
-      ;;
-    *)
+  if [ -z "$1" ] || [ ! -d "/opt/java/$1" ]; then
       echo >&2 'Usage: set-java-home [8|11|17|21]'
       return 1
-  esac
-  echo "JAVA_HOME=${p}"
-  JAVA_HOME="${p}"
+  fi
+  JAVA_HOME="/opt/java/$1"
+  echo "JAVA_HOME=${JAVA_HOME}"
 }
