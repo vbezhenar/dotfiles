@@ -16,13 +16,12 @@ RPS1="%40<...<%~"
 
 # paths
 path=(/opt/bin $path /opt/arm-gnu-toolchain-13.2.rel1-darwin-arm64-arm-none-eabi/bin)
-export JAVA_HOME=/opt/java/21
+export JAVA_HOME=/opt/java/jdk-17
 
 # misc
 setopt auto_cd
 setopt extended_glob
 setopt multios
-export LANG=en_GB.UTF-8
 export BUILDKIT_PROGRESS=plain
 
 # completion
@@ -37,6 +36,8 @@ autoload k-set-ns
 autoload mkcd
 autoload mkcdtmp
 autoload set-java-home
+autoload _set-java-home
+compctl -K _set-java-home set-java-home
 alias cp="cp -i"
 alias mv="mv -i"
 alias k=kubectl

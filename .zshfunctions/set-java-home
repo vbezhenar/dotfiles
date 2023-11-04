@@ -1,6 +1,6 @@
 set-java-home() {
   if [ -z "$1" ] || [ ! -d "/opt/java/$1" ]; then
-      echo >&2 'Usage: set-java-home [8|11|17|21]'
+      echo >&2 'Usage: set-java-home [zulu-8|zulu-11|jdk-11|jdk-17|jdk-21]'
       return 1
   fi
   JAVA_HOME="/opt/java/$1"
