@@ -15,7 +15,12 @@ PS1="%(?..%F{red}%?%f )%# "
 RPS1="%40<...<%~"
 
 # paths
-path=(/opt/bin $path /opt/arm-gnu-toolchain-13.2.rel1-darwin-arm64-arm-none-eabi/bin)
+path=(
+  /opt/node/node-v20/bin
+  /opt/bin
+  $path
+  /opt/arm-gnu-toolchain-13.2.rel1-darwin-arm64-arm-none-eabi/bin
+)
 export JAVA_HOME=/opt/java/jdk-17
 
 # misc
@@ -32,12 +37,15 @@ compinit
 # aliases and simple functions
 alias ls="ls -G"
 alias ll="ls -Ahl"
+autoload _set-java-home
+autoload _set-node-home
 autoload k-set-ns
 autoload mkcd
 autoload mkcdtmp
 autoload set-java-home
-autoload _set-java-home
+autoload set-node-home
 compctl -K _set-java-home set-java-home
+compctl -K _set-node-home set-node-home
 alias cp="cp -i"
 alias mv="mv -i"
 alias k=kubectl

@@ -1,0 +1,7 @@
+set-node-home() {
+  if [[ -z $1 ]] || [[ ! -d /opt/node/$1 ]]; then
+      print >&2 'Usage: set-node-home [node-v18|node-v20]'
+      return 1
+  fi
+  path=(/opt/node/$1/bin ${path:#/opt/node/*})
+}
