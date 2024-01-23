@@ -1,0 +1,3 @@
+xmlformat() {
+  xmllint --format --encode utf-8 "$@"
+}

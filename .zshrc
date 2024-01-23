@@ -16,12 +16,13 @@ RPS1="%40<...<%~"
 
 # paths
 path=(
+  $HOME/projects/bin
   /opt/node/node-v20/bin
   /opt/bin
   $path
   /opt/arm-gnu-toolchain-13.2.rel1-darwin-arm64-arm-none-eabi/bin
 )
-export JAVA_HOME=/opt/java/jdk-17
+export JAVA_HOME=/opt/java/jdk-21
 
 # misc
 setopt auto_cd
@@ -37,6 +38,7 @@ compinit
 # aliases and simple functions
 alias ls="ls -G"
 alias ll="ls -Ahl"
+autoload _k-set-ns
 autoload _set-java-home
 autoload _set-node-home
 autoload k-set-ns
@@ -44,6 +46,8 @@ autoload mkcd
 autoload mkcdtmp
 autoload set-java-home
 autoload set-node-home
+autoload xmlformat
+compctl -K _k-set-ns k-set-ns
 compctl -K _set-java-home set-java-home
 compctl -K _set-node-home set-node-home
 alias cp="cp -i"

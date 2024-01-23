@@ -1,0 +1,3 @@
+_k-set-ns() {
+  reply=( ${(f)"$(kubectl get namespaces --output 'custom-columns=:metadata.name')"} )
+}
