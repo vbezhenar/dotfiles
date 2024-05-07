@@ -1,0 +1,16 @@
+#!/usr/bin/env sh
+set -o nounset
+
+ln -s dotfiles/gdbinit ~/.gdbinit
+ln -s dotfiles/gitconfig ~/.gitconfig
+ln -s dotfiles/vimrc ~/.vimrc
+ln -s dotfiles/zshrc ~/.zshrc
+
+echo ~/.config/git/
+cd ~/.config/git/ && ln -s ../../dotfiles/config/git/* .
+
+echo ~/.ssh/
+cd ~/.ssh/ && ln -s ../dotfiles/ssh/* .
+
+echo ~/.zshfunctions/
+cd ~/.zshfunctions/ && ln -s ../dotfiles/zshfunctions/* .

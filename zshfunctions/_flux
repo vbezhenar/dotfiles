@@ -1,0 +1,4 @@
+#compdef flux
+
+source <(flux completion zsh)
+_flux $@

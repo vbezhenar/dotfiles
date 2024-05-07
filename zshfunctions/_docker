@@ -1,0 +1,4 @@
+#compdef docker
+
+source <(docker completion zsh)
+_docker $@

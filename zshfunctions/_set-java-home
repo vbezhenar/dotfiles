@@ -1,0 +1,4 @@
+#compdef set-java-home
+
+local -a versions=(1.8 11 17 21)
+_describe 'version' versions
