@@ -1,5 +1,4 @@
 #compdef k-set-ns
 
-local -a namespaces
-namespaces=(${(f)"$(kubectl get namespaces --output 'custom-columns=:metadata.name')"})
+local -a namespaces=(${(f)"$(kubectl get namespaces --output 'custom-columns=:metadata.name')"})
 _describe 'namespace' namespaces
