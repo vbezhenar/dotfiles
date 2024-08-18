@@ -17,15 +17,8 @@ setopt auto_cd
 setopt extended_glob
 setopt multios
 
-export EDITOR="code --wait"
-export HOMEBREW_PREFIX="/opt/homebrew";
-export HOMEBREW_CELLAR="/opt/homebrew/Cellar";
-export HOMEBREW_REPOSITORY="/opt/homebrew";
-
-path=(~/apps/bin ~/.cargo/bin $path /opt/homebrew/bin /opt/homebrew/sbin)
-manpath+=/opt/homebrew/share/man
-
-fpath+=(~/.zshfunctions ~/.rustup/toolchains/stable-aarch64-apple-darwin/share/zsh/site-functions /opt/homebrew/share/zsh/site-functions)
+path=(~/apps/bin ~/.cargo/bin $path)
+fpath+=(~/.zshfunctions)
 
 autoload compinit
 autoload k-set-ns
@@ -36,7 +29,25 @@ autoload unar
 
 compinit
 
-alias cpr='cp -Rc'
-alias ls='ls -G'
-alias ll='ls -AGhl'
 alias k=kubectl
+alias ls='ls --color=always'
+alias ll='ls -Ahl --color=always'
+
+if [[ $OSTYPE = darwin* ]]; then
+  path+=(/opt/homebrew/bin)
+  path+=(/opt/homebrew/sbin)
+  manpath+=/opt/homebrew/share/man
+  fpath+=(~/.rustup/toolchains/stable-aarch64-apple-darwin/share/zsh/site-functions)
+  fpath+=(/opt/homebrew/share/zsh/site-functions)
+
+  export HOMEBREW_PREFIX=/opt/homebrew
+  export HOMEBREW_CELLAR=/opt/homebrew/Cellar
+  export HOMEBREW_REPOSITORY=/opt/homebrew
+elif [[ $OSTYPE = linux* ]]; then
+  bindkey "^[[2~" overwrite-mode # Insert
+  bindkey "^[[3~" delete-char-or-list # Delete
+  bindkey "^[[H" beginning-of-line # Home
+  bindkey "^[[F" end-of-line # End
+  bindkey "^[[1;5C" forward-word # Ctrl+Right
+  bindkey "^[[1;5D" backward-word # Ctrl+Right
+fi
