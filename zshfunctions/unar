@@ -1,0 +1,41 @@
+local archive=$1
+local destdir=${2:-.}
+
+xattr -d com.apple.quarantine $archive 2>/dev/null
+
+local method
+
+if [[ $archive =~ '(.*/)?([^/]+)\.(tar\.(bz2|gz|xz)|zip)$' ]] {
+  local name=$match[2]
+  local method=$match[3]
+
+  if [[ -e $destdir/$name ]] {
+    print >&2 $destdir/$name exists
+    return 1
+  }
+
+  mkdir $destdir/._$name || return $?
+
+  case $method {
+    zip)
+      unzip $archive -d $destdir/._$name || return $?
+      ;;
+
+    tar.*)
+      tar -x -f $archive -C $destdir/._$name || return $?
+      ;;
+  }
+
+  local -a files=($destdir/._$name/*(DN))
+  if [[ $#files -eq 1 && -d $files[1] && $files[1] == $destdir/._$name/$name ]] {
+    mv $files[1] $destdir/$name || return $?
+    rmdir $destdir/._$name || return 1
+  } else {
+    mv $destdir/._$name $destdir/$name || return $?
+  }
+
+  echo $destdir/$name
+} else {
+  print >&2 Unsupported archive
+}
+

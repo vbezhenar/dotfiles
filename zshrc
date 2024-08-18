@@ -17,6 +17,7 @@ setopt auto_cd
 setopt extended_glob
 setopt multios
 
+export EDITOR="code --wait"
 export HOMEBREW_PREFIX="/opt/homebrew";
 export HOMEBREW_CELLAR="/opt/homebrew/Cellar";
 export HOMEBREW_REPOSITORY="/opt/homebrew";
@@ -31,10 +32,10 @@ autoload k-set-ns
 autoload mkcd
 autoload mkcdtmp
 autoload set-java-home
+autoload unar
 
 compinit
 
-alias cp='cp -c'
 alias cpr='cp -Rc'
 alias ls='ls -G'
 alias ll='ls -AGhl'
