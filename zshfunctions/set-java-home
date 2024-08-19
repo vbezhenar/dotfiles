@@ -1,13 +1,13 @@
-if [[ -n $1 && ! -e ~/apps/java/jdk-$1 ]] {
+if [[ -n $1 && ! -e ~/apps/java/jdk-$1 ]]; then
   print >&2 "Usage: $0 1.8|11|17|21"
   return 1
-}
-if [[ -n $JAVA_HOME ]] {
+fi
+if [[ -n $JAVA_HOME ]]; then
   path=(${path:#$JAVA_HOME/bin})
-}
-if [[ -n $1 ]] {
+fi
+if [[ -n $1 ]]; then
   export JAVA_HOME=~/apps/java/jdk-$1
   path=($JAVA_HOME/bin $path)
-} else {
+else
   unset JAVA_HOME
-}
+fi

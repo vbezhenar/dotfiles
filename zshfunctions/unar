@@ -5,37 +5,36 @@ xattr -d com.apple.quarantine $archive 2>/dev/null
 
 local method
 
-if [[ $archive =~ '(.*/)?([^/]+)\.(tar\.(bz2|gz|xz)|zip)$' ]] {
+if [[ $archive =~ '(.*/)?([^/]+)\.(tar\.(bz2|gz|xz)|zip)$' ]]; then
   local name=$match[2]
   local method=$match[3]
 
-  if [[ -e $destdir/$name ]] {
+  if [[ -e $destdir/$name ]]; then
     print >&2 $destdir/$name exists
     return 1
-  }
+  fi
 
   mkdir $destdir/._$name || return $?
 
-  case $method {
-    zip)
-      unzip $archive -d $destdir/._$name || return $?
-      ;;
+  case $method in
+  zip)
+    unzip $archive -d $destdir/._$name || return $?
+    ;;
 
-    tar.*)
-      tar -x -f $archive -C $destdir/._$name || return $?
-      ;;
-  }
+  tar.*)
+    tar -x -f $archive -C $destdir/._$name || return $?
+    ;;
+  esac
 
   local -a files=($destdir/._$name/*(DN))
-  if [[ $#files -eq 1 && -d $files[1] && $files[1] == $destdir/._$name/$name ]] {
+  if [[ $#files -eq 1 && -d $files[1] && $files[1] == $destdir/._$name/$name ]]; then
     mv $files[1] $destdir/$name || return $?
     rmdir $destdir/._$name || return 1
-  } else {
+  else
     mv $destdir/._$name $destdir/$name || return $?
-  }
+  fi
 
   echo $destdir/$name
-} else {
+else
   print >&2 Unsupported archive
-}
-
+fi
