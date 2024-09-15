@@ -17,7 +17,7 @@ setopt auto_cd
 setopt extended_glob
 setopt multios
 
-path=(~/apps/bin ~/.cargo/bin $path)
+path=(~/apps/bin ~/.cargo/bin ~/.docker/bin $path)
 fpath+=(~/.zshfunctions)
 
 autoload compinit
