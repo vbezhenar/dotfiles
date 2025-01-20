@@ -25,6 +25,8 @@ export HOMEBREW_CELLAR=/opt/homebrew/Cellar
 export HOMEBREW_REPOSITORY=/opt/homebrew
 
 autoload compinit
+autoload mkcd
+autoload mkcdtmp
 
 compinit
 
