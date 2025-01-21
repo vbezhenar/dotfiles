@@ -30,5 +30,6 @@ autoload mkcdtmp
 
 compinit
 
+alias code='open -b com.microsoft.VSCode'
 alias ls='ls -G'
 alias ll='ls -AGhl'
