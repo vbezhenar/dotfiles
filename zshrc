@@ -27,9 +27,11 @@ export HOMEBREW_REPOSITORY=/opt/homebrew
 autoload compinit
 autoload mkcd
 autoload mkcdtmp
+autoload set-java-home
 
 compinit
 
 alias code='open -b com.microsoft.VSCode'
+alias k='kubectl'
 alias ls='ls -G'
 alias ll='ls -AGhl'

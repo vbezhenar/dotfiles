@@ -1,0 +1,4 @@
+#compdef set-java-home
+
+local -a versions=(~/apps/java/*(:t))
+_describe 'version' versions
