@@ -25,6 +25,7 @@ export HOMEBREW_CELLAR=/opt/homebrew/Cellar
 export HOMEBREW_REPOSITORY=/opt/homebrew
 
 autoload compinit
+autoload k-set-ns
 autoload mkcd
 autoload mkcdtmp
 autoload set-java-home

@@ -1,0 +1,9 @@
+local ns
+if [[ -n $1 ]]; then
+  ns=$1
+elif [[ -e kustomization.yaml ]]; then
+  ns=$(yq .namespace ./kustomization.yaml)
+else
+  ns=$(basename $PWD)
+fi
+kubectl config set-context --current --namespace=$ns && print namespace=$ns
