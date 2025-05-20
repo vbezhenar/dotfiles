@@ -1,0 +1,21 @@
+{
+  "editor.fontFamily": "'Jetbrains Mono NL', 'Droid Sans Mono', 'monospace', monospace",
+  "editor.fontSize": 20,
+  "editor.minimap.enabled": false,
+  "window.autoDetectColorScheme": true,
+  "window.zoomLevel": 1,
+  "editor.formatOnSave": true,
+  "extensions.ignoreRecommendations": true,
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "window.restoreWindows": "none",
+
+  "github.copilot.enable": {
+    "*": false
+  },
+
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}
