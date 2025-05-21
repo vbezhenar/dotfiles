@@ -42,6 +42,7 @@ autoload compinit
 
 compinit
 
+alias k=kubectl
 alias ls='ls --color=auto'
 alias ll='ls -Ahl --color=auto'
 alias rmt='gio trash'
