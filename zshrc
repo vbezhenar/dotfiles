@@ -39,6 +39,8 @@ path=(~/apps/bin $path)
 fpath=(~/.zshfunctions $fpath)
 
 autoload compinit
+autoload mkcd
+autoload mkcdtmp
 
 compinit
 
