@@ -41,8 +41,12 @@ fpath=(~/.zshfunctions $fpath)
 autoload compinit
 autoload mkcd
 autoload mkcdtmp
+autoload zrecompile
 
 compinit
+
+zrecompile
+zrecompile -p -R ~/.zshrc -- -M ~/.zcompdump
 
 alias k=kubectl
 alias ls='ls --color=auto'
