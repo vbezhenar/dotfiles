@@ -10,12 +10,13 @@ setopt hist_reduce_blanks
 setopt inc_append_history
 setopt transient_rprompt
 
-bindkey "^[[2~" overwrite-mode # Insert
-bindkey "^[[3~" delete-char-or-list # Delete
-bindkey "^[[H" beginning-of-line # Home
-bindkey "^[[F" end-of-line # End
-bindkey "^[[1;5C" forward-word # Ctrl+Right
-bindkey "^[[1;5D" backward-word # Ctrl+Left
+bindkey '^[[2~' overwrite-mode # Insert
+bindkey '^[[3~' delete-char-or-list # Delete
+bindkey '^[[H' beginning-of-line # Home
+bindkey '^[[F' end-of-line # End
+bindkey '^[[1;5C' forward-word # Ctrl+Right
+bindkey '^[[1;5D' backward-word # Ctrl+Left
+bindkey '^[[3;5~' delete-word # Ctrl+Delete
 
 PS1=$'\n'"%(?..%F{red}%?%f )%# "
 RPS1="%40<...<%~"
