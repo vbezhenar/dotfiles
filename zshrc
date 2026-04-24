@@ -33,8 +33,12 @@ function preexec() {
 }
 
 setopt auto_cd
+setopt auto_pushd
 setopt extended_glob
 setopt multios
+setopt pushd_ignore_dups
+
+DIRSTACKSIZE=16
 
 path=(~/apps/bin $path)
 fpath=(~/.zshfunctions $fpath)
