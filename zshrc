@@ -44,6 +44,7 @@ path=(~/apps/bin $path)
 fpath=(~/.zshfunctions $fpath)
 
 autoload compinit
+autoload k-secret-decode
 autoload mkcd
 autoload mkcdtmp
 autoload zrecompile
