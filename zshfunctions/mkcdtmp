@@ -1,1 +1,1 @@
-mkcd ~/tmp/$(date +%y%m%d)/$1
+mkcd ~/tmp/$(date +%m%d)/$1
